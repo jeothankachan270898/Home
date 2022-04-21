@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Alert, StyleSheet, View } from 'react-native';
+import { Alert, StyleSheet, View ,KeyboardAvoidingView, TouchableWithoutFeedback ,Keyboard} from 'react-native';
 import {useNavigation} from '@react-navigation/native'
 
 import FlatButton from '../ui/FlatButton';
@@ -52,6 +52,11 @@ function AuthContent({ isLogin, onAuthenticate }) {
   }
 
   return (
+    <KeyboardAvoidingView
+    behavior={Platform.OS === "ios" ? "padding" : "height"}
+    style={styles.container}
+    >
+       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <View style={styles.authContent}>
       <AuthForm
         isLogin={isLogin}
@@ -64,6 +69,8 @@ function AuthContent({ isLogin, onAuthenticate }) {
         </FlatButton>
       </View>
     </View>
+    </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 }
 
@@ -85,4 +92,7 @@ const styles = StyleSheet.create({
   buttons: {
     marginTop: 8,
   },
+  container: {
+    flex: 1,
+  }
 });

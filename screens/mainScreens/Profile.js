@@ -1,15 +1,15 @@
-import { View ,Text, StyleSheet } from 'react-native';
+import { View ,Text, StyleSheet } from 'react-native'
 import { Colors } from '../../constants/styles';
 
-function About () {
+function Profile () {
     return(
         <View style={styles.container}>
-            <Text style={styles.textHead}>About Us</Text>
+            <Text style={styles.textHead}>My Profile</Text>
         </View>
     )
 
 }
-export default About;
+export default Profile;
 
 const styles = StyleSheet.create({
     container: {
@@ -23,3 +23,4 @@ const styles = StyleSheet.create({
         fontSize: 15
     }
 })
+

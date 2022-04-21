@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
   button: {
     margin: 8,
     borderRadius: 20,
+    marginRight: 15
   },
   pressed: {
     opacity: 0.7,
