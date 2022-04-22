@@ -19,6 +19,11 @@ import DailyExpence from './screens/mainScreens/DailyExpence';
 import Profile from './screens/mainScreens/Profile';
 
 
+import CategoriesScreen from './screens/MealScreen/CategoriesScreen';
+import MealsOverviewScreen from './screens/MealScreen/MealsOverviewScreen';
+import MealsList from './components/Mealslist/MealsList';
+
+
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -46,6 +51,8 @@ function HomeTab(){
       headerStyle: { backgroundColor: Colors.primary500 },
       headerTintColor: 'white',
       contentStyle: { backgroundColor: Colors.primary100 },
+      
+      
     }}>
       <Tab.Screen name='authenticatedStack' component={AuthenticatedStack}
       options={{
@@ -62,6 +69,15 @@ function HomeTab(){
         tabBarLabel: 'Recent',
         tabBarIcon: ({ color, size }) => (
           <Ionicons name="hourglass" size={size} color={color} />
+        ),
+      }}
+      />
+      <Tab.Screen name='DailyMeals' component={MealsBlock}
+      options={{
+        title: 'Daily Meals',
+        tabBarLabel: 'Meals',
+        tabBarIcon: ({ color, size }) => (
+          <Ionicons name="fast-food-outline" size={size} color={color} />
         ),
       }}
       />
@@ -82,6 +98,7 @@ function HomeTab(){
             )}
           />
         ),
+      
       } )}
       />
     </Tab.Navigator>
@@ -124,6 +141,7 @@ function ProfileBlock (){
       headerStyle: { backgroundColor: Colors.primary500 },
       headerTintColor: 'white',
       contentStyle: { backgroundColor: Colors.primary100 },
+      
     }}
     >
       <Stack.Screen name='MyProfile' component={Profile} 
@@ -138,6 +156,36 @@ function ProfileBlock (){
     </Stack.Navigator>
   )
 }
+
+function MealsBlock () {
+  return(
+    <Stack.Navigator
+    screenOptions={{
+      headerStyle: { backgroundColor: Colors.primary500 },
+      headerTintColor: 'white',
+      contentStyle: { backgroundColor: Colors.primary100 },
+      
+    }}
+    >
+      <Stack.Screen  
+              name="Categories"
+              component={CategoriesScreen}
+              options={{
+                headerShown: false
+              }}
+            />
+      <Stack.Screen
+              name="MealsOverview"
+              component={MealsOverviewScreen}
+              options={{
+                headerShown: false
+              }}
+            />
+           
+    </Stack.Navigator>
+  )
+  }
+
 
 function Navigation() {
   const authCtx = useContext(AuthContext);
