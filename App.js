@@ -181,6 +181,13 @@ function MealsBlock () {
                 headerShown: false
               }}
             />
+       <Stack.Screen
+              name="MealDetail"
+              component={MealDetailScreen}
+              options={{
+                title: 'About the Meal',
+              }}
+            />     
            
     </Stack.Navigator>
   )
